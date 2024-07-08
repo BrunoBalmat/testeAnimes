@@ -1,0 +1,9 @@
+.container{
+    width: 100%;
+    margin: 0;
+}
+
+.slide-image{
+    width: 90%;
+    object-fit: cover ;
+}

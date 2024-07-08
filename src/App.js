@@ -1,7 +1,8 @@
 import { useState, useEffect } from 'react';
 import './App.css';
 import axios from 'axios';
-import HamburgerMenu from './components/Hamburger';
+import HamburgerMenu from './components/hamburguer/Hamburger';
+import Slider from './components/slider/Slider';
 
 function App() {
 
@@ -19,13 +20,17 @@ function App() {
 
   console.log(populares, 'populares');
 
+
   return (
+
     <div className="App">
-      <HamburgerMenu/>
-      <div>
+      <div className='sideBar'>
+        <HamburgerMenu />
+      </div>
+      <div className='content'>
         <header className="App-header">
           <a className='linkhome' href='/'><img src='/logo.png' alt='logo' /></a>
-          <input />
+          <input placeholder='Buscar' />
         </header>
         <div className='displayPopulares'>
           <h2>Animes Mais Populares</h2>
@@ -39,6 +44,7 @@ function App() {
             })}
           </div>
         </div>
+        <Slider/>
       </div>
     </div>
   );

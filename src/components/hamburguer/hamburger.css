@@ -1,6 +1,6 @@
 .hamburger {
-    width: 30px;
-    height: 25px;
+    width: 40px;
+    height: 35px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -9,47 +9,38 @@
   
   .line {
     width: 100%;
-    height: 3px;
-    background-color: black;
-    transition: all 0.3s ease;
+    height: 6px;
+    border-radius: 2px;
+    background-color: rgb(255, 255, 255);
+    transition: all 0.2s ease;
   }
   
   .menu {
     position: fixed;
     top: 0;
     left: -100%;
-    width: 200px;
+    width: 270px;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.8);
+    background-color: rgb(244, 109, 27);
     color: white;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    transition: all 0.3s ease;
+    transition: all 0.2s ease;
   }
   
   .menu.open {
-    left: 0;
+    left: 0;        
   }
   
-  .menu ul {
-    list-style: none;
-    padding: 0;
-  }
-  
-  .menu ul li {
-    margin: 20px 0;
-  }
-  
-  .menu ul li a {
-    color: white;
-    text-decoration: none;
-    font-size: 20px;
-  }
-  
+  /* .categories{
+    text-align: left;
+  } */
+
   .hamburger.open .line:nth-child(1) {
-    transform: rotate(45deg) translateY(16px);
+    transform: rotate(50deg) translateY(20px);
+    z-index: 100;
   }
   
   .hamburger.open .line:nth-child(2) {
@@ -57,6 +48,7 @@
   }
   
   .hamburger.open .line:nth-child(3) {
-    transform: rotate(-45deg) translateY(-16px);
+    transform: rotate(-50deg) translateY(-20px);
+    z-index: 100;
   }
   
