@@ -1,61 +1,67 @@
-*{
+* {
   margin: 0;
   padding: 0;
 }
 
-.App{
+.App {
   background-image: url(../public/banner.png);
   background-repeat: no-repeat;
-  background-size: 100%;
+  background-size: 101%;
   display: flex;
   width: 100%;
 }
 
-.content{
-  width: 100%;
+.content {
+  width: 90%;
   height: 100%;
   margin: auto;
-  margin: 3%;
+  margin-left: 3%;
+  margin-top: 3%;
 }
 
-.sideBar{
+.sideBar {
   background-color: rgb(244, 109, 27);
-  padding: 1.5vw;
+  padding-top: 1.5vw;
   display: flex;
   justify-content: center;
-  width: 10vw;
+  width: 10%;
 }
 
-.linkhome img{
-  width: 12vw;
+.linkhome img {
+  width: 15vw;
 }
 
-.App-header{  
+.App-header {
   display: flex;
   justify-content: space-between;
   align-items: start;
-  width: 90vw;
+  width: 90%;
   height: 20vh;
   margin-bottom: 20vh;
 }
 
-
 .displayPopulares {
-  width: 90%;
-}
-
-.displayPopulares h2{
-  margin-bottom: 2%;
-}
-
-.imagensPopulares{
-  display: flex;
-  justify-content: space-between;
   width: 100%;
 }
 
-.display5animes img{  
-  width: 17vw;
+.displayPopulares h2 {
+  margin-bottom: 2%;
+}
+
+.imagensPopulares {
+  display: flex;
+  justify-content: space-between;
+  width: 96%;
+}
+
+.display5animes img {
+  width: 16vw;
   margin-bottom: 5%;
-  
+}
+
+footer Img {
+  width: 112%;
+  height: 100%;
+  margin-left: -12%;
+  margin-bottom: -1%;
 }

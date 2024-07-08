@@ -1,42 +1,32 @@
-import { Swiper, SwiperSlide } from 'swiper/react';
-import { EffectFade, Pagination, Navigation } from 'swiper/modules'
-import 'swiper/css/effect-fade'
-import 'swiper/css';
-import './slider.css'
-import 'swiper/css'
-import 'swiper/css/navigation'
-import 'swiper/css/pagination'
-import 'swiper/css/scrollbar'
-import 'swiper/css/effect-fade'
+import { Swiper, SwiperSlide } from "swiper/react";
+import { EffectFade, Pagination, Navigation, Autoplay } from "swiper/modules";
+import "swiper/css/effect-fade";
+import "swiper/swiper-bundle.css";
+import "./slider.css";
 
-const sliderImages = [
-    {id:'1', Image: './banner1.png'},
-    {id:'2', Image: './banner2.png'},
-    {id:'3', Image: './banner3.png'},
-]
-
-function Slider(){
-    return (
-        <div className='container'>
-            <Swiper 
-            slidesPerView={1}
-            pagination={{clickble: true}}
-            modules={[EffectFade, Pagination, Navigation]}
-            effect='fade'
-            loop={true}
-            navigation
-            >
-                {sliderImages.map((item)=>(
-                    <SwiperSlide key={item.id}>
-                        <img src={item.Image} 
-                        alt='banner'
-                        className='slide-image'/>
-                    </SwiperSlide>
-                ))}
-            </Swiper>
-
-        </div>
-    )
+function Slider() {
+  return (
+    <div className="container">
+      <Swiper
+        modules={[EffectFade, Pagination, Navigation, Autoplay]}
+        slidesPerView={1}
+        pagination={{ clickable: true }}
+        effect="fade"
+        autoplay={{ delay: 5000 }}
+        loop={true}
+      >
+        <SwiperSlide>
+          <img src="./banner1.png" alt="banner" className="slide-image1" />
+        </SwiperSlide>
+        <SwiperSlide>
+          <img src="./banner2.png" alt="banner" className="slide-image2" />
+        </SwiperSlide>
+        <SwiperSlide>
+          <img src="./banner3.png" alt="banner" className="slide-image3" />
+        </SwiperSlide>
+      </Swiper>
+    </div>
+  );
 }
 
 export default Slider;

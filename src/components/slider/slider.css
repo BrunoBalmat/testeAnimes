@@ -1,9 +1,26 @@
-.container{
-    width: 100%;
-    margin: 0;
+.container img {
+  width: 96%;
+  margin-top: 32px;
+  margin-bottom: 32px;
 }
 
-.slide-image{
-    width: 90%;
-    object-fit: cover ;
+.swiper {
+  animation-delay: 500ms;
+}
+
+.swiper-slide {
+  flex-shrink: 0;
+  width: 90%;
+  height: 100%;
+  position: relative;
+  transition-property: transform;
+  display: block;
+}
+
+.swiper-wrapper {
+  width: 100%;
+}
+
+:root {
+  --swiper-theme-color: rgb(244, 109, 27);
 }
