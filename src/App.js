@@ -75,7 +75,7 @@ function App() {
           </div>
         </div>
         <footer>
-          <img src="./rodape.png" />
+          <img className="footerImage" src="./rodape.png" />
         </footer>
       </div>
     </div>
