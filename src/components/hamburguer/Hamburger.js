@@ -31,8 +31,9 @@ export default function HamburgerMenu() {
         <div className="line"></div>
       </div>
       <div className={`menu ${isOpen ? "open" : ""}`}>
-        <h2>CATEGORIAS</h2>
         <div>
+          <h2 onClick={toggleMenu} className="fechar" >x</h2>
+          <h2 className="titleCategories"><i class="fa-solid fa-list"></i> CATEGORIAS</h2>
           {listar?.map((categoria) => {
             return (
               <div key={categoria.id} className="categories">

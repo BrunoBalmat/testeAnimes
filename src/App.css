@@ -1,6 +1,7 @@
 * {
   margin: 0;
   padding: 0;
+  font-family: 'Inter', Arial, sans-serif;
 }
 
 .App {
@@ -15,7 +16,7 @@
   width: 90%;
   height: 100%;
   margin: auto;
-  margin-left: 3%;
+  margin-left: 2.5%;
   margin-top: 3%;
 }
 
@@ -24,10 +25,11 @@
   padding-top: 1.5vw;
   display: flex;
   justify-content: center;
-  width: 10%;
+  width: 5.4%;
 }
 
 .linkhome img {
+  margin-top: -28px;
   width: 15vw;
 }
 
@@ -42,6 +44,8 @@
 
 .displayPopulares {
   width: 100%;
+  margin-bottom: 5%;
+  margin-top: 3%;
 }
 
 .displayPopulares h2 {
@@ -57,4 +61,18 @@
 .display5animes img {
   width: 16vw;
   margin-bottom: 5%;
+}
+
+footer{
+  display: flex;
+  justify-content: center;
+  background-color: rgba(38, 38, 38, 1);
+  height: 276px;
+  width: 111.36%;
+  margin-left: -9%;
+  margin-top: 5%;
+}
+
+.catImage{
+  margin-top: -32px;
 }

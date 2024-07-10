@@ -1,6 +1,6 @@
 .hamburger {
-  width: 40px;
-  height: 35px;
+  width: 2.5vw;
+  height: 2.2vw;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -9,8 +9,8 @@
 
 .line {
   width: 100%;
-  height: 6px;
-  border-radius: 2px;
+  height: 0.4vw;
+  border-radius: 3px;
   background-color: rgb(255, 255, 255);
   transition: all 0.2s ease;
 }
@@ -18,15 +18,11 @@
 .menu {
   position: fixed;
   top: 0;
-  left: -100%;
-  width: 270px;
+  left: -1000px;
+  width: 20%;
   height: 100%;
   background-color: rgb(244, 109, 27);
   color: white;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
   transition: all 0.2s ease;
 }
 
@@ -35,13 +31,31 @@
   z-index: 50;
 }
 
-/* .categories{
-    text-align: left;
-  } */
+.fechar {
+  display: inline-block;
+  font-size: 52px;
+  font-weight: 100;
+  margin-top: 3%;
+  margin-left: 80%;
+  text-align: end;
+}
+
+.titleCategories{
+  font-size: 20px;
+  font-weight: 700;
+  margin-top: 15%;
+  padding-left: 20%;
+  padding-bottom: 9px;
+}
+
+.categories {
+  padding-left: 20%;
+  font-size: 16px;
+  padding-bottom: 9px;
+}
 
 .hamburger.open .line:nth-child(1) {
-  transform: rotate(50deg) translateY(23px);
-  z-index: 100;
+  opacity: 0;
 }
 
 .hamburger.open .line:nth-child(2) {
@@ -49,6 +63,5 @@
 }
 
 .hamburger.open .line:nth-child(3) {
-  transform: rotate(-50deg) translateY(-22px);
-  z-index: 100;
+  opacity: 0;
 }

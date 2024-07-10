@@ -42,7 +42,7 @@ function App() {
           <input placeholder="Buscar" />
         </header>
         <div className="displayPopulares">
-          <h2>Animes Mais Populares</h2>
+          <h2><i class="fa-regular fa-star"></i><i class="fa-solid fa-heart"><i class="fa-solid fa-star"></i></i>Animes Mais Populares</h2>
           <div className="imagensPopulares">
             {populares?.map((personagem) => {
               return (
@@ -59,7 +59,7 @@ function App() {
         <div>
           <Slider />
           <div className="displayPopulares">
-            <h2>Animes Mais Avaliados</h2>
+            <h2><i class="fa-regular fa-thumbs-up"></i>Animes Mais Avaliados</h2>
             <div className="imagensPopulares">
               {avaliados?.map((avaliados) => {
                 return (
@@ -75,7 +75,9 @@ function App() {
           </div>
         </div>
         <footer>
-          <img className="footerImage" src="./rodape.png" />
+          <div className="catImage">
+            <img src="./gato.png" />
+          </div>
         </footer>
       </div>
     </div>
