@@ -1,6 +1,6 @@
 .hamburger {
-  width: 2.5vw;
-  height: 2.2vw;
+  width: 2.2vw;
+  height: 2vw;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -10,25 +10,25 @@
 .line {
   width: 100%;
   height: 0.4vw;
-  border-radius: 3px;
+  border-radius: 1px;
   background-color: rgb(255, 255, 255);
   transition: all 0.2s ease;
 }
 
 .menu {
-  position: fixed;
+  position: absolute;
   top: 0;
-  left: -1000px;
-  width: 20%;
-  height: 100%;
+  left: -100%;
+  width: 270px;
+  height: 300%;
   background-color: rgb(244, 109, 27);
   color: white;
-  transition: all 0.2s ease;
+  transition: all 0.3s ease;  
 }
 
 .menu.open {
   left: 0;
-  z-index: 50;
+  z-index: 2;
 }
 
 .fechar {
@@ -38,6 +38,7 @@
   margin-top: 3%;
   margin-left: 80%;
   text-align: end;
+  cursor: pointer;
 }
 
 .titleCategories{

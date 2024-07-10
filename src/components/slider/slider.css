@@ -1,6 +1,7 @@
 .container img {
-  width: 96%;
+  width: 99%;
   margin-bottom: 3%;
+  z-index: 1;
 }
 
 .swiper {
@@ -9,11 +10,12 @@
 
 .swiper-slide {
   flex-shrink: 0;
-  width: 90%;
+  width: 100%;
   height: 100%;
   position: relative;
   transition-property: transform;
   display: block;
+  z-index: 1;
 }
 
 .swiper-pagination-bullet{
