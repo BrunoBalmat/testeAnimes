@@ -65,6 +65,51 @@
   margin-bottom: 5%;
 }
 
+.tooltipContent{
+  display: flex;
+  flex-direction: column; 
+  max-height: 252px;
+  color: rgba(204, 204, 204, 1);
+  gap: 8px;
+}
+
+.css-kudwh-MuiTooltip-arrow::before{
+  color: rgba(38, 38, 38, 1);
+  width: 50px;
+  height: 50px;
+}
+
+.title{
+  font-size: 20px;
+  font-weight: 600;
+  font-family: 'Inter', Arial, sans-serif;
+}
+
+.rating{
+  font-size: 20px;
+  font-weight: 500;
+}
+
+.popularity{
+  font-size: 14px;
+  font-weight: 500;  
+}
+
+.ratingrank{
+  font-size: 14px;
+  font-weight: 500; 
+  padding-bottom: 16px;
+}
+
+.descriptionContaine{
+  padding-bottom: 8px;
+}
+
+.description{  
+  font-size: 12px;
+  font-weight: 400;
+}
+
 .sliderDisplay{
   z-index: 1;
 }

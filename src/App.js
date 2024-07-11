@@ -3,7 +3,29 @@ import "./App.css";
 import axios from "axios";
 import HamburgerMenu from "./components/hamburguer/Hamburger";
 import Slider from "./components/slider/Slider";
-import { Tooltip, IconButton } from "@mui/material"
+import { Tooltip, tooltipClasses } from "@mui/material"
+import { styled } from '@mui/system';
+
+const CustomTooltip = styled(({ className, ...props }) => (
+  <Tooltip {...props} classes={{ popper: className }} />
+))(({ theme }) => ({
+  [`& .${tooltipClasses.tooltip}`]: {
+    backgroundColor: 'rgba(38, 38, 38, 1)',
+    maxWidth: '13vw',
+    maxHeigth: '300px',
+    borderRadios: 50,
+    padding: 24,
+    borderRadius: '10px',
+  },
+}));
+
+const RatingSpan = styled('span')({
+  overflow: 'hidden',
+  textOverflow: 'ellipsis',
+  display: '-webkit-box',
+  WebkitBoxOrient: 'vertical',
+  WebkitLineClamp: 6,
+});
 
 function App() {
   const [populares, setPopulares] = useState();
@@ -45,22 +67,39 @@ function App() {
           <input placeholder="Buscar" />
         </header>
         <div className="displayPopulares">
-          <h2><i class="fa-regular fa-star" /><i class="fa-solid fa-heart"></i>Animes Mais Populares</h2>
+          <h2><i class="fa-regular fa-star" />Animes Mais Populares</h2>
           <div className="imagensPopulares">
-            {populares?.map((personagem) => {
-              const title = `
-                ${personagem?.attributes?.titles?.en_jp} 
-                ${personagem?.attributes?.averageRating} 
-                #${personagem?.attributes?.popularityRank} Mais popular
-              `;
+            {populares?.map((anime) => {
+              const content = (
+                <div className="tooltipContent">
+                  <h2 className="title">{anime?.attributes?.titles?.en_jp}</h2>
+                  <h3 className="rating" style={{ color: 'rgba(22, 160, 133, 1)' }}>{anime?.attributes?.averageRating}  % </h3>
+                  <h4 className="popularity"><i class="fa-solid fa-heart" style={{ color: 'rgba(255, 69, 69, 1)' }} /> #{anime?.attributes?.popularityRank} Mais popular</h4>
+                  <h4 className="ratingrank"><i class="fa-solid fa-star" style={{ color: 'rgba(255, 225, 69, 1)' }} /> #{anime?.attributes?.ratingRank} Melhor Classificado</h4>
+                  <div className="descriptionContainer">
+                    <RatingSpan className="description">{anime?.attributes?.description}</RatingSpan>
+                  </div>
+                </div>
+              );
               return (
                 <div className="display5animes">
-                  <Tooltip title={title} placement="bottom" arrow>
+                  <CustomTooltip slotProps={{
+                    popper: {
+                      modifiers: [
+                        {
+                          name: 'offset',
+                          options: {
+                            offset: [0, 4],
+                          },
+                        },
+                      ],
+                    },
+                  }} title={content} placement="bottom" arrow enterDelay={1000} leaveDelay={100}>
                     <img
-                      src={personagem?.attributes?.posterImage?.small}
+                      src={anime?.attributes?.posterImage?.small}
                       alt="anime"
                     />
-                  </Tooltip>
+                  </CustomTooltip>
                 </div>
               );
             })}
@@ -71,15 +110,35 @@ function App() {
           <div className="displayPopulares">
             <h2><i class="fa-regular fa-thumbs-up"></i>Animes Mais Bem Classificados</h2>
             <div className="imagensPopulares">
-              {avaliados?.map((avaliados) => {
+              {avaliados?.map((anime) => {
+                const content = (
+                  <div className="tooltipContent">
+                    <h2 className="title">{anime?.attributes?.titles?.en_jp}</h2>
+                    <h2 className="rating" style={{ color: 'rgba(22, 160, 133, 1)' }}>{anime?.attributes?.averageRating}%</h2>
+                    <h3 className="popularity"><i class="fa-solid fa-heart" style={{ color: 'rgba(255, 69, 69, 1)' }} />#{anime?.attributes?.popularityRank} Mais popular</h3>
+                    <h3 className="ratingrank"><i class="fa-solid fa-star" style={{ color: 'rgba(255, 225, 69, 1)' }} />#{anime?.attributes?.ratingRank}Melhor Classificado</h3>
+                    <RatingSpan className="description">{anime?.attributes?.description}</RatingSpan>
+                  </div>
+                );
                 return (
                   <div className="display5animes">
-                    <Tooltip title={avaliados?.attributes?.titles?.en_jp} placement="bottom" arrow>
+                    <CustomTooltip slotProps={{
+                      popper: {
+                        modifiers: [
+                          {
+                            name: 'offset',
+                            options: {
+                              offset: [0, 4],
+                            },
+                          },
+                        ],
+                      },
+                    }} title={content} placement="bottom" arrow>
                       <img
-                        src={avaliados?.attributes?.posterImage?.small}
+                        src={anime?.attributes?.posterImage?.small}
                         alt="anime"
                       />
-                    </Tooltip>
+                    </CustomTooltip>
                   </div>
                 );
               })}
@@ -88,7 +147,7 @@ function App() {
         </div>
         <footer>
           <div className="catImage">
-            <img src="./gato.png" />
+            <img src="./gato.png" alt="gato" />
           </div>
         </footer>
       </div>
