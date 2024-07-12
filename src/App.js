@@ -5,31 +5,35 @@ import HamburgerMenu from "./components/hamburguer/Hamburger";
 import Slider from "./components/slider/Slider";
 import { Tooltip, tooltipClasses } from "@mui/material"
 import { styled } from '@mui/system';
+import InputCustomized from './components/inputCustumized'
 
-const CustomTooltip = styled(({ className, ...props }) => (
-  <Tooltip {...props} classes={{ popper: className }} />
-))(({ theme }) => ({
-  [`& .${tooltipClasses.tooltip}`]: {
-    backgroundColor: 'rgba(38, 38, 38, 1)',
-    maxWidth: '13vw',
-    maxHeigth: '300px',
-    borderRadios: 50,
-    padding: 24,
-    borderRadius: '10px',
-  },
-}));
 
-const RatingSpan = styled('span')({
-  overflow: 'hidden',
-  textOverflow: 'ellipsis',
-  display: '-webkit-box',
-  WebkitBoxOrient: 'vertical',
-  WebkitLineClamp: 6,
-});
+
+
 
 function App() {
+  const [animeSearch, setAnimeSearch] = useState();
   const [populares, setPopulares] = useState();
   const [avaliados, setAvaliados] = useState();
+  const RatingSpan = styled('span')({
+    overflow: 'hidden',
+    textOverflow: 'ellipsis',
+    display: '-webkit-box',
+    WebkitBoxOrient: 'vertical',
+    WebkitLineClamp: 6,
+  });
+  const CustomTooltip = styled(({ className, ...props }) => (
+    <Tooltip {...props} classes={{ popper: className }} />
+  ))(({ theme }) => ({
+    [`& .${tooltipClasses.tooltip}`]: {
+      backgroundColor: 'rgba(38, 38, 38, 1)',
+      maxWidth: '13vw',
+      maxHeigth: '300px',
+      borderRadios: 50,
+      padding: 24,
+      borderRadius: '10px',
+    },
+  }));
 
   useEffect(() => {
     Promise.all([
@@ -51,6 +55,16 @@ function App() {
         console.error("Erro ao buscar", errors);
       });
   }, []);
+
+  const handleSearch = () => {
+    axios.get(`https://kitsu.io/api/edge/anime?filter[text]=${animeSearch}`)
+      .then(response => {
+        console.log(response.data.data, 'pesquisa');
+      })
+      .catch(error => {
+        console.error("Erro ao buscar", error);
+      });
+  };
   console.log(populares);
   console.log(avaliados, 'avaliados');
 
@@ -64,7 +78,7 @@ function App() {
           <a className="linkhome" href="/">
             <img src="/logo.png" alt="logo" />
           </a>
-          <input placeholder="Buscar" />
+          <InputCustomized onChange={(e) => setAnimeSearch(e.target.value)} onSearch={handleSearch} />
         </header>
         <div className="displayPopulares">
           <h2><i class="fa-regular fa-star" />Animes Mais Populares</h2>
@@ -86,15 +100,15 @@ function App() {
                   <CustomTooltip slotProps={{
                     popper: {
                       modifiers: [
-                        {
-                          name: 'offset',
-                          options: {
-                            offset: [0, 4],
+                      {
+                        name: 'offset',
+                        options: {
+                          offset: [0, 4],
                           },
                         },
                       ],
                     },
-                  }} title={content} placement="bottom" arrow enterDelay={1000} leaveDelay={100}>
+                    }} title={content} placement="bottom" arrow enterDelay={1000} leaveDelay={100}>
                     <img
                       src={anime?.attributes?.posterImage?.small}
                       alt="anime"
