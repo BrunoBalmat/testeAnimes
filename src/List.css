@@ -1,0 +1,32 @@
+  .List {
+      background-color: rgb(255, 255, 255);
+      background-repeat: no-repeat;
+      background-position: top center;
+      background-size: 101%;
+      display: flex;
+      width: 100%;
+  }
+
+  .listDisplay {
+      width: 100%;
+      min-height: 50vh;
+      margin-bottom: 7%;
+      margin-top: 3%;
+  }
+
+  .listDisplay h2{
+    margin-bottom: 2%;
+  }
+
+  .imagesList {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: start;
+      gap: 1vw;
+      row-gap: 1.5vw;
+      width: 99%;
+  }
+
+  .display5list img{
+    width: 16.8vw;
+  }

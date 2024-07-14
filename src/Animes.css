@@ -1,0 +1,126 @@
+  .Anime {
+    background-color: rgb(255, 255, 255);
+    background-repeat: no-repeat;
+    background-position: top center;
+    background-size: 101%;
+    display: flex;
+    width: 100%;
+  }
+  
+  .content {
+    width: 90%;
+    height: 100%;
+    margin: auto;
+    margin-left: 3%;
+    margin-top: 3%;
+  }
+  
+  .sideBar {
+    background-color: rgb(244, 109, 27);
+    padding-top: 1.5vw;
+    display: flex;
+    justify-content: center;
+    width: 5%;
+  }
+  
+  .linkhome img {
+    margin-top: -20px;
+    width: 14vw;
+  }
+  
+  .pages-header {
+    background-color: rgba(0, 0, 0, 0.8);
+    padding: 3%;    
+    margin-left: -3.33%;
+    margin-top: -3.4%;
+    display: flex;
+    justify-content: space-between;
+    align-items: start;
+    width: 99.5%;
+    height: 102px;
+  }
+  
+  .displayPopulares {
+    width: 100%;
+    margin-bottom: 7%;
+    margin-top: 3%;
+  }
+  
+  .displayPopulares h2 {
+    margin-bottom: 2%;
+  }
+  
+  .imagensPopulares {
+    display: flex;
+    justify-content: space-between;
+    gap: 16px;
+    width: 99%;
+  }
+  
+  .display5animes img {
+    width: 100%;
+    margin-bottom: 5%;
+  }
+  
+  .tooltipContent{
+    display: flex;
+    flex-direction: column; 
+    max-height: 252px;
+    color: rgb(204, 204, 204);
+    gap: 8px;
+  }
+  
+  .css-kudwh-MuiTooltip-arrow::before{
+    color: rgba(38, 38, 38, 1);
+    width: 50px;
+    height: 50px;
+  }
+  
+  .title{
+    font-size: 20px;
+    font-weight: 600;
+    font-family: 'Inter', Arial, sans-serif;
+  }
+  
+  .rating{
+    font-size: 20px;
+    font-weight: 500;
+  }
+  
+  .popularity{
+    font-size: 14px;
+    font-weight: 500;  
+  }
+  
+  .ratingrank{
+    font-size: 14px;
+    font-weight: 500; 
+    padding-bottom: 16px;
+  }
+  
+  .descriptionContaine{
+    padding-bottom: 8px;
+  }
+  
+  .description{  
+    font-size: 12px;
+    font-weight: 400;
+  }
+  
+  .sliderDisplay{
+    z-index: 1;
+  }
+  
+  footer{
+    display: flex;
+    justify-content: center;
+    background-color: rgba(38, 38, 38, 1);
+    height: 276px;
+    width: 111.2%;
+    margin-left: -9%;
+    margin-top: 5%;
+  }
+  
+  .catImage{
+    margin-top: -32px;
+  }

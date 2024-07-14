@@ -57,17 +57,9 @@ function App() {
   }, []);
 
   const handleSearch = () => {
-    axios.get(`https://kitsu.io/api/edge/anime?filter[text]=${animeSearch}`)
-      .then(response => {
-        console.log(response.data.data, 'pesquisa');
-      })
-      .catch(error => {
-        console.error("Erro ao buscar", error);
-      });
+    window.location = `./list?search=${animeSearch}`;    
   };
-  console.log(populares);
-  console.log(avaliados, 'avaliados');
-
+  
   return (
     <div className="App">
       <div className="sideBar">
