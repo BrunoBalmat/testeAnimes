@@ -19,16 +19,17 @@
   position: absolute;
   top: 0;
   left: -100%;
+  height: 100%;
   width: 270px;
-  height: 300%;
   background-color: rgb(244, 109, 27);
   color: white;
   transition: all 0.3s ease;  
+  z-index: 2000;
 }
 
 .menu.open {
   left: 0;
-  z-index: 2;
+  z-index: 20;
 }
 
 .fechar {
@@ -41,9 +42,13 @@
   cursor: pointer;
 }
 
+.listTitle{
+  font-size: 2vw;
+}
+
 .titleCategories{
-  font-size: 20px;
-  font-weight: 700;
+  font-size: 1.2vw;
+  
   margin-top: 15%;
   padding-left: 20%;
   padding-bottom: 9px;
@@ -51,8 +56,13 @@
 
 .categories {
   padding-left: 20%;
-  font-size: 16px;
-  padding-bottom: 9px;
+  font-size: 1.1vw;
+  padding-bottom: 3%;
+}
+
+.categories a{
+  text-decoration: none;
+  color: rgb(255, 255, 255);
 }
 
 .hamburger.open .line:nth-child(1) {

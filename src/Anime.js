@@ -3,6 +3,7 @@ import "./Animes.css";
 import axios from "axios";
 import HamburgerMenu from "./components/hamburguer/Hamburger";
 import InputCustomized from './components/inputCustumized'
+import Footer from "./components/footer";
 
 
 
@@ -50,7 +51,14 @@ function Anime() {
   console.log(animeData, `resposta`);
 
   return (
-    <div className="Anime">
+    <div className="Anime"
+    style={{ 
+      backgroundImage: `url(${animeData?.attributes?.coverImage?.large})`, 
+      backgroundRepeat: 'no-repeat',
+      backgroundPosition: 'top center',
+      backgroundSize: '101%'
+    }}>
+      
       <div className="sideBar">
         <HamburgerMenu />
       </div>
@@ -66,11 +74,7 @@ function Anime() {
             <h2>{animeData?.attributes?.titles?.en_jp}</h2>
             <h3>{animeData?.attributes?.description}</h3>
         </div>
-        <footer>
-          <div className="catImage">
-            <img src="./gato.png" alt="gato" />
-          </div>
-        </footer>
+        <Footer/>
       </div>
     </div>
   );

@@ -5,9 +5,12 @@ import HamburgerMenu from "./components/hamburguer/Hamburger";
 import { Tooltip, tooltipClasses } from "@mui/material"
 import { styled } from '@mui/system';
 import InputCustomized from './components/inputCustumized'
+import TheatersOutlinedIcon from '@mui/icons-material/TheatersOutlined';
+import Footer from "./components/footer";
 
 function List() {
     const [animeSearch, setAnimeSearch] = useState();
+    const [animeCategorie, setAnimeCategorie] = useState();
     const [animeResponse, setAnimeResponse] = useState();
     const [animeList, setAnimeList] = useState([]);
 
@@ -45,6 +48,7 @@ function List() {
 
     useEffect(() => {
         setAnimeResponse(urlparams.search);
+        setAnimeCategorie(urlparams.categories)
     }, [urlparams]);
 
     useEffect(() => {
@@ -59,11 +63,21 @@ function List() {
         }
     }, [animeResponse]);
 
+    useEffect(() => {
+        if (animeCategorie) {
+            axios.get(`https://kitsu.io/api/edge/anime?filter[categories]=${animeCategorie}&page[limit]=20page[offset]=0`)
+                .then(function (response) {
+                    setAnimeList(response.data.data);
+                })
+                .catch(function (error) {
+                    console.error("Erro ao buscar", error);
+                });
+        }
+    }, [animeCategorie]);
+
     const handleSearch = () => {
         window.location = `./list?search=${animeSearch}`;
     };
-
-    console.log(animeList, 'animelist');
 
     return (
         <div className="List">
@@ -78,7 +92,12 @@ function List() {
                     <InputCustomized onChange={(e) => setAnimeSearch(e.target.value)} onSearch={handleSearch} />
                 </header>
                 <div className="listDisplay">
-                    <h2> {urlparams.search}</h2>
+                    <div className="listTitle">
+                        <div className="iconMovie">
+                            <TheatersOutlinedIcon sx={{ fontSize: '2.5vw' }}/>
+                        </div> 
+                        <h2>{urlparams.search}{urlparams.categories}</h2>
+                    </div>
                     <div className="imagesList">
                         {Array.isArray(animeList) && animeList.map((anime) => {
                             const content = (
@@ -94,7 +113,7 @@ function List() {
                             );
                             return (
                                 <div className="display5list">
-                                    <CustomTooltip slotProps={{
+                                    <a href={`./anime?id=${anime?.id}`}><CustomTooltip slotProps={{
                                         popper: {
                                             modifiers: [
                                                 {
@@ -106,24 +125,20 @@ function List() {
                                             ],
                                         },
                                     }} title={content} placement="bottom" arrow enterDelay={1000} leaveDelay={100}>
-                                        <a href={`./anime?id=${anime?.id}`}>
-                                            <img
-                                                src={anime?.attributes?.posterImage?.small}
-                                                alt="anime"
-                                            />
-                                        </a>
-                                    </CustomTooltip>
+
+                                        <img
+                                            src={anime?.attributes?.posterImage?.small}
+                                            alt="anime"
+                                        />
+
+                                    </CustomTooltip></a>
                                 </div>
                             );
                         })}
                     </div>
                 </div>
 
-                <footer>
-                    <div className="catImage">
-                        <img src="./gato.png" alt="gato" />
-                    </div>
-                </footer>
+                <Footer/>
             </div>
         </div>
     );

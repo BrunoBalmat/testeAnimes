@@ -6,6 +6,7 @@ import Slider from "./components/slider/Slider";
 import { Tooltip, tooltipClasses } from "@mui/material"
 import { styled } from '@mui/system';
 import InputCustomized from './components/inputCustumized'
+import Footer from "./components/footer";
 
 
 
@@ -57,9 +58,9 @@ function App() {
   }, []);
 
   const handleSearch = () => {
-    window.location = `./list?search=${animeSearch}`;    
+    window.location = `./list?search=${animeSearch}`;
   };
-  
+
   return (
     <div className="App">
       <div className="sideBar">
@@ -88,25 +89,22 @@ function App() {
                 </div>
               );
               return (
-                <div className="display5animes">
+                <a href={`./anime?id=${anime?.id}`}><div className="display5animes">
                   <CustomTooltip slotProps={{
                     popper: {
                       modifiers: [
-                      {
-                        name: 'offset',
-                        options: {
-                          offset: [0, 4],
+                        {
+                          name: 'offset',
+                          options: {
+                            offset: [0, 4],
                           },
                         },
                       ],
                     },
-                    }} title={content} placement="bottom" arrow enterDelay={1000} leaveDelay={100}>
-                    <img
-                      src={anime?.attributes?.posterImage?.small}
-                      alt="anime"
-                    />
+                  }} title={content} placement="bottom" arrow enterDelay={500}>
+                    <img src={anime?.attributes?.posterImage?.small} alt="anime" />
                   </CustomTooltip>
-                </div>
+                </div></a>
               );
             })}
           </div>
@@ -151,11 +149,7 @@ function App() {
             </div>
           </div>
         </div>
-        <footer>
-          <div className="catImage">
-            <img src="./gato.png" alt="gato" />
-          </div>
-        </footer>
+        <Footer/>
       </div>
     </div>
   );

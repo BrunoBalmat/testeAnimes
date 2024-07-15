@@ -12,17 +12,17 @@ function Slider() {
         slidesPerView={1}
         pagination={{ clickable: true }}
         effect="fade"
-        autoplay={{ delay: 5000 }}
+        autoplay={{ delay: 3000 }}
         loop={true}
       >
         <SwiperSlide>
-          <img src="./banner1.png" alt="banner" className="slide-image1" />
+          <a href="./anime?id=11"><img src="./banner1.png" alt="banner" className="slide-image1" /></a>
         </SwiperSlide>
         <SwiperSlide>
-          <img src="./banner2.png" alt="banner" className="slide-image2" />
+          <a href="./anime?id=720"><img src="./banner2.png" alt="banner" className="slide-image2" /></a>
         </SwiperSlide>
         <SwiperSlide>
-          <img src="./banner3.png" alt="banner" className="slide-image3" />
+          <a href="./anime?id=12"><img src="./banner3.png" alt="banner" className="slide-image3" /></a>
         </SwiperSlide>
       </Swiper>
     </div>

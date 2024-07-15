@@ -37,7 +37,7 @@ export default function HamburgerMenu() {
           {listar?.map((categoria) => {
             return (
               <div key={categoria.id} className="categories">
-                {categoria?.attributes?.title}
+                <a href={`./list?categories=${categoria?.attributes?.title}`}>{categoria?.attributes?.title}</a>
               </div>
             );
           })}
