@@ -9,110 +9,70 @@
     position: relative;
   }
 
-  .animePage{
-    min-height: 100vh;
-  }
-  
-  .content {
-    width: 90%;
-    height: 100%;
-    margin: auto;
-    margin-left: 3%;
-    margin-top: 3%;
-  }
-  
-  .sideBar {
-    background-color: rgb(244, 109, 27);
-    padding-top: 1.5vw;
-    display: flex;
-    justify-content: center;
-    width: 5%;
-  }
-  
-  .linkhome img {
-    margin-top: -20px;
-    width: 14vw;
-  }
-  
   .pages-header {
     background-color: rgba(0, 0, 0, 0.8);
-    padding: 3%;    
+    padding: 2%;    
     margin-left: -3.33%;
+    margin-right: -2.25%;
     margin-top: -3.4%;
     display: flex;
     justify-content: space-between;
-    align-items: start;
-    width: 99.5%;
-    height: 102px;
+    align-items: center;
   }
   
-  .displayPopulares {
-    width: 100%;
-    margin-bottom: 7%;
-    margin-top: 3%;
+  .linkhomePages img {
+    margin-top: -15px;
+    width: 140px;
   }
-  
-  .displayPopulares h2 {
-    margin-bottom: 2%;
-  }
-  
-  .imagensPopulares {
+
+  .animePage{
+    min-height: 100vh;
     display: flex;
-    justify-content: space-between;
-    gap: 16px;
-    width: 99%;
-  }
-  
-  .display5animes img {
-    width: 100%;
-    margin-bottom: 5%;
-  }
-  
-  .tooltipContent{
+    width: 90%;
+    margin-left: 3%;    
+  }  
+
+  .animeImage{
     display: flex;
-    flex-direction: column; 
-    max-height: 252px;
-    color: rgb(204, 204, 204);
-    gap: 8px;
+    flex-direction: column;
+    gap: 30px;
+    margin-top: 10vw;
   }
-  
-  .css-kudwh-MuiTooltip-arrow::before{
-    color: rgba(38, 38, 38, 1);
-    width: 50px;
-    height: 50px;
-  }
-  
-  .title{
-    font-size: 20px;
+
+  .animeImage button{
+    font-size: 18px;
     font-weight: 600;
-    font-family: 'Inter', Arial, sans-serif;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgb(244, 109, 27);
+    color: rgb(255, 255, 255);
+    border: none;
+    border-radius: 10px;
+    padding-top: 4%;
+    padding-bottom: 4%;
+    cursor: pointer;
+    gap: 10px;
+  }
+
+  .animeImage h3{
+    font-size: 18px;
   }
   
-  .rating{
-    font-size: 20px;
-    font-weight: 500;
+  .animeDescription{
+    margin-top: 16.8vw;
+    margin-left: 3%;
+    color: rgba(60, 60, 60, 1);
+  }
+
+  .animeDescription h2{
+    font-size: 26px;
+    padding-bottom: 20px;
+  }
+
+  .animeDescription p{
+    font-size: 16px;
   }
   
-  .popularity{
-    font-size: 14px;
-    font-weight: 500;  
-  }
   
-  .ratingrank{
-    font-size: 14px;
-    font-weight: 500; 
-    padding-bottom: 16px;
-  }
   
-  .descriptionContaine{
-    padding-bottom: 8px;
-  }
-  
-  .description{  
-    font-size: 12px;
-    font-weight: 400;
-  }
-  
-  .sliderDisplay{
-    z-index: 1;
-  }

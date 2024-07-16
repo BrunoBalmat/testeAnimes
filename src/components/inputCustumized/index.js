@@ -12,7 +12,7 @@ export default function InputCustomized({ value, onChange, onSearch }) {
                 p: '2px 4px',
                 display: 'flex',
                 alignItems: 'center',
-                width: '17vw',
+                width: '18vw',
                 backgroundColor: 'transparent',
                 border: '2px solid white',
                 borderRadius: '15px'

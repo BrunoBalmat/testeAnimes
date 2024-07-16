@@ -89,7 +89,7 @@ function App() {
                 </div>
               );
               return (
-                <a href={`./anime?id=${anime?.id}`}><div className="display5animes">
+                <div className="display5animes"><a href={`./anime?id=${anime?.id}`}>
                   <CustomTooltip slotProps={{
                     popper: {
                       modifiers: [
@@ -104,7 +104,7 @@ function App() {
                   }} title={content} placement="bottom" arrow enterDelay={500}>
                     <img src={anime?.attributes?.posterImage?.small} alt="anime" />
                   </CustomTooltip>
-                </div></a>
+                </a></div>
               );
             })}
           </div>
@@ -125,7 +125,7 @@ function App() {
                   </div>
                 );
                 return (
-                  <div className="display5animes">
+                  <div className="display5animes"><a href={`./anime?id=${anime?.id}`}>
                     <CustomTooltip slotProps={{
                       popper: {
                         modifiers: [
@@ -138,18 +138,15 @@ function App() {
                         ],
                       },
                     }} title={content} placement="bottom" arrow>
-                      <img
-                        src={anime?.attributes?.posterImage?.small}
-                        alt="anime"
-                      />
+                      <img src={anime?.attributes?.posterImage?.small} alt="anime" />
                     </CustomTooltip>
-                  </div>
+                    </a></div>
                 );
               })}
             </div>
           </div>
         </div>
-        <Footer/>
+        <Footer />
       </div>
     </div>
   );

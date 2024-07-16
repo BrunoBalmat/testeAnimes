@@ -86,7 +86,7 @@ function List() {
             </div>
             <div className="content">
                 <header className="pages-header">
-                    <a className="linkhome" href="/">
+                    <a className="linkhomePages" href="/">
                         <img src="/logo.png" alt="logo" />
                     </a>
                     <InputCustomized onChange={(e) => setAnimeSearch(e.target.value)} onSearch={handleSearch} />
@@ -94,8 +94,8 @@ function List() {
                 <div className="listDisplay">
                     <div className="listTitle">
                         <div className="iconMovie">
-                            <TheatersOutlinedIcon sx={{ fontSize: '2.5vw' }}/>
-                        </div> 
+                            <TheatersOutlinedIcon sx={{ fontSize: '2.5vw' }} />
+                        </div>
                         <h2>{urlparams.search}{urlparams.categories}</h2>
                     </div>
                     <div className="imagesList">
@@ -138,7 +138,7 @@ function List() {
                     </div>
                 </div>
 
-                <Footer/>
+                <Footer />
             </div>
         </div>
     );
