@@ -44,3 +44,21 @@
   .display5list img{
     width: 16.4vw;
   }
+
+  .pagination{
+    display: flex;
+    justify-content: end;
+    margin-right: 3%;
+    gap: 1%;
+  }
+
+  .paginationLinks{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10px;
+    width: 48px;
+    height: 44px;
+    background-color: rgb(244, 109, 27);
+    color: rgb(255, 255, 255);
+  }
