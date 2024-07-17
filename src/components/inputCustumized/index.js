@@ -6,12 +6,13 @@ import SearchIcon from '@mui/icons-material/Search';
 
 export default function InputCustomized({ value, onChange, onSearch }) {
     return (
-        <Paper
+        <Paper className='paper'
             component="form"
             sx={{
                 p: '2px 4px',
                 display: 'flex',
                 alignItems: 'center',
+                minWidth: '120px',
                 width: '18vw',
                 backgroundColor: 'transparent',
                 border: '2px solid white',
@@ -39,7 +40,7 @@ export default function InputCustomized({ value, onChange, onSearch }) {
                 value={value}
                 onChange={onChange}
             />
-            <IconButton type="button" sx={{ p: '5px', color: 'white', fontSize: '2rem' }} aria-label="search"
+            <IconButton type="button" sx={{ p: '5px', color: 'white', fontSize: '1.8rem' }} aria-label="search"
                 onClick={() => {
                     onSearch();
                 }}

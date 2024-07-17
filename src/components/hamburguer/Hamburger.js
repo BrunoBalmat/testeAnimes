@@ -10,6 +10,10 @@ export default function HamburgerMenu() {
     setIsOpen(!isOpen);
   };
 
+  const closeMenu = () => {
+    setIsOpen(false);
+  };
+
   useEffect(() => {
     axios
       .get(
@@ -30,10 +34,13 @@ export default function HamburgerMenu() {
         <div className="line"></div>
         <div className="line"></div>
       </div>
-      <div className={`menu ${isOpen ? "open" : ""}`}>
+      <div 
+        className={`menu ${isOpen ? "open" : ""}`} 
+        onMouseLeave={closeMenu}
+      >
         <div>
           <h2 onClick={toggleMenu} className="fechar" >x</h2>
-          <h2 className="titleCategories"><i class="fa-solid fa-list"></i> CATEGORIAS</h2>
+          <h2 className="titleCategories"><i className="fa-solid fa-list"></i> CATEGORIAS</h2>
           {listar?.map((categoria) => {
             return (
               <div key={categoria.id} className="categories">

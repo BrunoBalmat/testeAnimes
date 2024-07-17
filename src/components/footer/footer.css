@@ -1,0 +1,80 @@
+footer {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  justify-content: flex-start;
+  background-color: rgba(38, 38, 38, 1);
+  height: 276px;
+  width: 111.1%;
+  margin-left: -8.9%;
+  margin-top: 5.25%;
+  color: rgb(255, 255, 255);
+}
+
+.verde {
+  color: rgb(52, 172, 64);
+}
+
+.vertudo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: rgb(244, 109, 27);
+  font-size: 20px;
+  font-weight: 700;
+  border: 3px solid rgb(244, 109, 27);
+  width: 140px;
+  height: 39px;
+  margin: auto;
+  margin-top: 10px;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.vertudo a {
+  text-decoration: none;
+}
+
+.vertudo:hover {
+  background-color: rgba(255, 255, 255, 0.025);
+}
+
+.rigths {
+  display: flex;
+  justify-content: space-between;
+  font-size: 12px;
+  padding: 32px;
+  margin-left: 8%;
+  margin-right: 2%;
+}
+
+.catImage {
+  margin-top: -32px;
+}
+
+
+@media (max-width: 700px) {
+
+  footer {
+    font-size: 8px;
+    margin-left: -11.3%;
+    width: 112.7%;
+  }
+
+  .catImage {
+    margin-top: -32px;
+  }
+
+  .catImage img {
+    width: 50%;
+  }
+
+  .verde {
+    font-size: 12px;
+  }
+
+  .rigths {
+    font-size: 8px;
+  }
+
+}

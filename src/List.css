@@ -21,6 +21,18 @@
     font-size: 2.3vw;
   }
 
+  .loadingContainer{
+    display: flex;
+    justify-content: center;
+    align-items: start;
+    height: 100vh;
+  }
+
+  .loadingContainer img{
+    margin-top: -150px;
+    width: 50%;
+  }
+
   .listTitle{
     display: flex;
     align-items: center;
@@ -61,4 +73,76 @@
     height: 44px;
     background-color: rgb(244, 109, 27);
     color: rgb(255, 255, 255);
+  }
+
+
+  @media (max-width: 700px) {    
+    .List {
+      background-color: rgb(255, 255, 255);
+      background-repeat: no-repeat;
+      background-position: top center;
+      background-size: 101%;
+      display: flex;
+      width: 100%;
+      height: 100%;
+      position: relative;
+  }
+
+  .iconMovie{
+    opacity: 0;
+  }
+
+  .linkhomePages img{
+    width: 35%;
+    margin-bottom: -10px;
+  }
+
+  .listDisplay {
+      width: 100%;
+      min-height: 50vh;
+      margin-bottom: 7%;
+      margin-top: 3%;
+  }
+
+  .listDisplay h2{
+    margin-bottom: 2%;
+    font-size: 2.3vw;
+  }
+
+  .loadingContainer{
+    display: flex;
+    justify-content: center;
+    margin-top: 50%;
+    height: 200vh;
+  }
+
+  .loadingContainer img{
+    width: 50%;
+  }
+
+  .listTitle{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: rgb(244, 109, 27);
+  }
+
+  .listTitle h2{
+    font-size: 32px;
+  }
+
+  .imagesList {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-evenly;
+      gap: 1.2vw;
+      row-gap: 1.5vw;
+      width: 99%;
+      min-height: 100vh;
+  }
+
+  .display5list img{
+    width: 38vw;
+  }
+
   }

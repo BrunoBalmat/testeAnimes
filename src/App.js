@@ -3,19 +3,17 @@ import "./App.css";
 import axios from "axios";
 import HamburgerMenu from "./components/hamburguer/Hamburger";
 import Slider from "./components/slider/Slider";
-import { Tooltip, tooltipClasses } from "@mui/material"
+import { Tooltip, tooltipClasses } from "@mui/material";
 import { styled } from '@mui/system';
-import InputCustomized from './components/inputCustumized'
+import InputCustomized from './components/inputCustumized';
 import Footer from "./components/footer";
-
-
-
-
 
 function App() {
   const [animeSearch, setAnimeSearch] = useState();
-  const [populares, setPopulares] = useState();
-  const [avaliados, setAvaliados] = useState();
+  const [populares, setPopulares] = useState([]);
+  const [avaliados, setAvaliados] = useState([]);
+  const [windowWidth, setWindowWidth] = useState(window.innerWidth);
+
   const RatingSpan = styled('span')({
     overflow: 'hidden',
     textOverflow: 'ellipsis',
@@ -23,13 +21,14 @@ function App() {
     WebkitBoxOrient: 'vertical',
     WebkitLineClamp: 6,
   });
+
   const CustomTooltip = styled(({ className, ...props }) => (
     <Tooltip {...props} classes={{ popper: className }} />
   ))(({ theme }) => ({
     [`& .${tooltipClasses.tooltip}`]: {
       backgroundColor: 'rgba(38, 38, 38, 1)',
       maxWidth: '13vw',
-      maxHeigth: '300px',
+      maxHeight: '300px',
       borderRadios: 50,
       padding: 24,
       borderRadius: '10px',
@@ -37,13 +36,21 @@ function App() {
   }));
 
   useEffect(() => {
+    const handleResize = () => {
+      setWindowWidth(window.innerWidth);
+    };
+
+    window.addEventListener('resize', handleResize);
+
+    return () => {
+      window.removeEventListener('resize', handleResize);
+    };
+  }, []);
+
+  useEffect(() => {
     Promise.all([
-      axios.get(
-        `https://kitsu.io/api/edge/anime?page%5Blimit%5D=5&sort=-average_rating`
-      ),
-      axios.get(
-        `https://kitsu.io/api/edge/anime?page%5Blimit%5D=5&sort=-user_count`
-      ),
+      axios.get(`https://kitsu.io/api/edge/anime?page%5Blimit%5D=5&sort=-average_rating`),
+      axios.get(`https://kitsu.io/api/edge/anime?page%5Blimit%5D=5&sort=-user_count`),
     ])
       .then(function (responses) {
         const response1 = responses[0];
@@ -61,6 +68,13 @@ function App() {
     window.location = `./list?search=${animeSearch}`;
   };
 
+  const getVisibleItems = (items) => {
+    if (windowWidth < 700) {
+      return items.slice(0, 4);
+    }
+    return items;
+  };
+
   return (
     <div className="App">
       <div className="sideBar">
@@ -74,9 +88,9 @@ function App() {
           <InputCustomized onChange={(e) => setAnimeSearch(e.target.value)} onSearch={handleSearch} />
         </header>
         <div className="displayPopulares">
-          <h2><i class="fa-regular fa-star" />Animes Mais Populares</h2>
+          <h2><strong><i class="fa-regular fa-star" />Animes</strong> Mais Populares</h2>
           <div className="imagensPopulares">
-            {populares?.map((anime) => {
+            {getVisibleItems(populares).map((anime) => {
               const content = (
                 <div className="tooltipContent">
                   <h2 className="title">{anime?.attributes?.titles?.en_jp}</h2>
@@ -89,7 +103,7 @@ function App() {
                 </div>
               );
               return (
-                <div className="display5animes"><a href={`./anime?id=${anime?.id}`}>
+                <div className="display5animes" key={anime.id}><a href={`./anime?id=${anime?.id}`}>
                   <CustomTooltip slotProps={{
                     popper: {
                       modifiers: [
@@ -112,9 +126,9 @@ function App() {
         <div className="sliderDisplay">
           <Slider />
           <div className="displayPopulares">
-            <h2><i class="fa-regular fa-thumbs-up"></i>Animes Mais Bem Classificados</h2>
+            <h2><strong><i class="fa-regular fa-thumbs-up"></i>Animes</strong> Mais Bem Classificados</h2>
             <div className="imagensPopulares">
-              {avaliados?.map((anime) => {
+              {getVisibleItems(avaliados).map((anime) => {
                 const content = (
                   <div className="tooltipContent">
                     <h2 className="title">{anime?.attributes?.titles?.en_jp}</h2>
@@ -125,7 +139,7 @@ function App() {
                   </div>
                 );
                 return (
-                  <div className="display5animes"><a href={`./anime?id=${anime?.id}`}>
+                  <div className="display5animes" key={anime.id}><a href={`./anime?id=${anime?.id}`}>
                     <CustomTooltip slotProps={{
                       popper: {
                         modifiers: [
@@ -140,7 +154,7 @@ function App() {
                     }} title={content} placement="bottom" arrow>
                       <img src={anime?.attributes?.posterImage?.small} alt="anime" />
                     </CustomTooltip>
-                    </a></div>
+                  </a></div>
                 );
               })}
             </div>

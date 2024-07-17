@@ -39,8 +39,12 @@
     margin-top: 10vw;
   }
 
+  .animeImage img{
+    width: 20vw;
+  }
+
   .animeImage button{
-    font-size: 18px;
+    font-size: 1.5vw;
     font-weight: 600;
     display: flex;
     align-items: center;
@@ -60,6 +64,7 @@
   }
   
   .animeDescription{
+    max-width: 960px;
     margin-top: 16.8vw;
     margin-left: 3%;
     color: rgba(60, 60, 60, 1);

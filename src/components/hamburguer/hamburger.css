@@ -56,7 +56,7 @@
 .categories {
   padding-left: 20%;
   font-size: 1.1vw;
-  padding-bottom: 5%; 
+  padding-bottom: 9px; 
 }
 
 .categories a{
@@ -74,4 +74,43 @@
 
 .hamburger.open .line:nth-child(3) {
   opacity: 0;
+}
+
+@media (max-width: 700px) { 
+  
+  .hamburger {
+    width: 5vw;
+    height: 5vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    cursor: pointer;
+  }
+  
+  .line {
+    width: 100%;
+    height: 15%;
+    border-radius: 1px;
+    background-color: rgb(255, 255, 255);
+    transition: all 0.2s ease;
+  }
+  
+  .titleCategories{
+    font-size: 16px;  
+    margin-top: 15%;
+    padding-left: 20%;
+    padding-bottom: 10%;
+  }
+  
+  .categories {
+    padding-left: 20%;
+    font-size: 16px;
+    padding-bottom: 9px; 
+  }
+  
+  .categories a{
+    text-decoration: none;
+    color: rgb(255, 255, 255);
+  }
+  
 }
