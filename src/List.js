@@ -26,6 +26,7 @@ function List() {
         WebkitBoxOrient: 'vertical',
         WebkitLineClamp: 6,
     });
+    
 
     const CustomTooltip = styled(({ className, ...props }) => (
         <Tooltip {...props} classes={{ popper: className }} />
@@ -101,7 +102,9 @@ function List() {
     }, [animeCategorie]);
 
     const handleSearch = () => {
-        window.location = `./list?search=${animeSearch}`;
+        if (animeSearch) {
+            window.location = `./list?search=${animeSearch}`;
+        }
     };
 
     const fetchPage = (url) => {
@@ -144,7 +147,7 @@ function List() {
                         <>
                             <div className="listTitle">
                                 <div className="iconMovie">
-                                    <TheatersOutlinedIcon className="iconMovieCell" sx={{ fontSize: '2.5vw' }} />
+                                    <TheatersOutlinedIcon className="movieIcon"/>
                                 </div>
                                 <h2>{urlparams.todos}{urlparams.search}{urlparams.categories}</h2>
                             </div>

@@ -57,8 +57,9 @@ footer {
 
   footer {
     font-size: 8px;
-    margin-left: -11.3%;
-    width: 112.7%;
+    margin-left: -16%;
+    margin-top: 16%;
+    width: 121%;
   }
 
   .catImage {
@@ -77,4 +78,10 @@ footer {
     font-size: 8px;
   }
 
+}
+
+@media (max-width: 370px){
+  footer {
+    width: 121%;
+  }
 }

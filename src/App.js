@@ -65,7 +65,9 @@ function App() {
   }, []);
 
   const handleSearch = () => {
-    window.location = `./list?search=${animeSearch}`;
+    if (animeSearch) {
+      window.location = `./list?search=${animeSearch}`;
+    }
   };
 
   const getVisibleItems = (items) => {
@@ -85,18 +87,21 @@ function App() {
           <a className="linkhome" href="/">
             <img src="/logo.png" alt="logo" />
           </a>
-          <InputCustomized onChange={(e) => setAnimeSearch(e.target.value)} onSearch={handleSearch} />
+          <InputCustomized onChange={(e) => setAnimeSearch(e.target.value)} onSearch={handleSearch} />          
         </header>
+        <div className="displayHeader">
+          <p>O <green>Maior</green> Catálogo de <orange>Anime</orange> do Mundo</p>
+        </div>
         <div className="displayPopulares">
-          <h2><strong><i class="fa-regular fa-star" />Animes</strong> Mais Populares</h2>
+          <h2><strong><i className="fa-regular fa-star" />Animes</strong> Mais Populares</h2>
           <div className="imagensPopulares">
             {getVisibleItems(populares).map((anime) => {
               const content = (
                 <div className="tooltipContent">
                   <h2 className="title">{anime?.attributes?.titles?.en_jp}</h2>
                   <h3 className="rating" style={{ color: 'rgba(22, 160, 133, 1)' }}>{anime?.attributes?.averageRating}  % </h3>
-                  <h4 className="popularity"><i class="fa-solid fa-heart" style={{ color: 'rgba(255, 69, 69, 1)' }} /> #{anime?.attributes?.popularityRank} Mais popular</h4>
-                  <h4 className="ratingrank"><i class="fa-solid fa-star" style={{ color: 'rgba(255, 225, 69, 1)' }} /> #{anime?.attributes?.ratingRank} Melhor Classificado</h4>
+                  <h4 className="popularity"><i className="fa-solid fa-heart" style={{ color: 'rgba(255, 69, 69, 1)' }} /> #{anime?.attributes?.popularityRank} Mais popular</h4>
+                  <h4 className="ratingrank"><i className="fa-solid fa-star" style={{ color: 'rgba(255, 225, 69, 1)' }} /> #{anime?.attributes?.ratingRank} Melhor Classificado</h4>
                   <div className="descriptionContainer">
                     <RatingSpan className="description">{anime?.attributes?.description}</RatingSpan>
                   </div>
@@ -126,15 +131,15 @@ function App() {
         <div className="sliderDisplay">
           <Slider />
           <div className="displayPopulares">
-            <h2><strong><i class="fa-regular fa-thumbs-up"></i>Animes</strong> Mais Bem Classificados</h2>
+            <h2><strong><i className="fa-regular fa-thumbs-up"></i>Animes</strong> Mais Bem Classificados</h2>
             <div className="imagensPopulares">
               {getVisibleItems(avaliados).map((anime) => {
                 const content = (
                   <div className="tooltipContent">
                     <h2 className="title">{anime?.attributes?.titles?.en_jp}</h2>
                     <h2 className="rating" style={{ color: 'rgba(22, 160, 133, 1)' }}>{anime?.attributes?.averageRating}%</h2>
-                    <h3 className="popularity"><i class="fa-solid fa-heart" style={{ color: 'rgba(255, 69, 69, 1)' }} />#{anime?.attributes?.popularityRank} Mais popular</h3>
-                    <h3 className="ratingrank"><i class="fa-solid fa-star" style={{ color: 'rgba(255, 225, 69, 1)' }} />#{anime?.attributes?.ratingRank}Melhor Classificado</h3>
+                    <h3 className="popularity"><i className="fa-solid fa-heart" style={{ color: 'rgba(255, 69, 69, 1)' }} />#{anime?.attributes?.popularityRank} Mais popular</h3>
+                    <h3 className="ratingrank"><i className="fa-solid fa-star" style={{ color: 'rgba(255, 225, 69, 1)' }} />#{anime?.attributes?.ratingRank}Melhor Classificado</h3>
                     <RatingSpan className="description">{anime?.attributes?.description}</RatingSpan>
                   </div>
                 );

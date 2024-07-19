@@ -88,12 +88,12 @@
       position: relative;
   }
 
-  .iconMovie{
-    opacity: 0;
+  .css-i4bv87-MuiSvgIcon-root {
+    font-size: 9vw;
   }
 
   .linkhomePages img{
-    width: 35%;
+    width: 55%;
     margin-bottom: -10px;
   }
 

@@ -19,7 +19,9 @@ function Anime() {
   useEffect(() => { }, []);
 
   const handleSearch = () => {
-    window.location = `./list?search=${animeSearch}`;
+    if (animeSearch) {
+      window.location = `./list?search=${animeSearch}`;
+    }
   };
 
 
@@ -74,8 +76,8 @@ function Anime() {
         <div className="animePage">
           <div className="animeImage">
             <img src={animeData?.attributes?.posterImage?.small} alt="Anime Cover" />
-            <button onClick={()=> setOpenTrailer("aberto")}><YouTubeIcon sx={{ fontSize: '2.5vw', color: 'white' }} /> VER TRAILER</button>
-            <h3 className="rating" style={{ color: 'rgba(22, 160, 133, 1)' }}>Aprovado por <strong>{animeData?.attributes?.averageRating}%</strong> <br/>da Comunidade </h3>
+            <button onClick={() => setOpenTrailer("aberto")}><YouTubeIcon sx={{ fontSize: '4vw', color: 'white' }} /> VER TRAILER</button>
+            <h3 className="rating" style={{ color: 'rgba(22, 160, 133, 1)' }}>Aprovado por <strong>{animeData?.attributes?.averageRating}%</strong> <br />da Comunidade </h3>
             <h3 className="popularity"><i class="fa-solid fa-heart" style={{ color: 'rgba(255, 69, 69, 1)' }} /> #{animeData?.attributes?.popularityRank} Mais popular</h3>
             <h3 className="ratingrank"><i class="fa-solid fa-star" style={{ color: 'rgba(255, 225, 69, 1)' }} /> #{animeData?.attributes?.ratingRank} Melhor Classificado</h3>
           </div>
@@ -84,7 +86,7 @@ function Anime() {
             <p>{animeData?.attributes?.description}</p>
           </p>
         </div>
-        <Modal openTrailer={openTrailer} animeData={animeData} setOpenTrailer={setOpenTrailer}/>
+        <Modal openTrailer={openTrailer} animeData={animeData} setOpenTrailer={setOpenTrailer} />
         <Footer />
       </div>
     </div>
